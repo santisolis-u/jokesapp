@@ -11,10 +11,17 @@ interface CarouselProps {
   items: Joke[];
   indexChange: (number: number) => void;
   fetchNextJokes: () => void;
+  cardIndex: number;
 }
 
-const Carousel = ({items, indexChange, fetchNextJokes}: CarouselProps) => {
+const Carousel = ({
+  items,
+  indexChange,
+  fetchNextJokes,
+  cardIndex,
+}: CarouselProps) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
+
   return (
     <View style={styles.container}>
       <Animated.FlatList
@@ -42,13 +49,7 @@ const Carousel = ({items, indexChange, fetchNextJokes}: CarouselProps) => {
         keyExtractor={element => element.id}
         renderItem={item => (
           <Card
-            backgroundColor={
-              JOKE_CARD_COLORS[
-                Math.floor(
-                  Math.random() * (JOKE_CARD_COLORS.length - 1 + 1) + 0,
-                )
-              ]
-            }
+            backgroundColor={JOKE_CARD_COLORS[cardIndex]}
             text={item.item.joke}
           />
         )}

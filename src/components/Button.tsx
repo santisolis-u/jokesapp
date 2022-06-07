@@ -11,22 +11,21 @@ import React from 'react';
 interface ButtonProps {
   children: JSX.Element;
   style: StyleProp<ViewStyle>;
+  onPress?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({children, style}) => {
+const Button: React.FC<ButtonProps> = ({children, style, onPress}) => {
   return (
-    <View style={[style, styles.buttonContainer]}>
-      <Pressable style={styles.pressable}>
-        <Text style={styles.text}>{children}</Text>
-      </Pressable>
-    </View>
+    <Pressable onPress={onPress} style={styles.pressable}>
+      <Text style={styles.text}>{children}</Text>
+    </Pressable>
   );
 };
 
 export default Button;
 
 const styles = StyleSheet.create({
-  buttonContainer: {
+  pressable: {
     marginVertical: 40,
     justifyContent: 'center',
     alignItems: 'center',
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     width: '80%',
   },
-  pressable: {},
   text: {
     fontFamily: 'OpenSans-Regular',
     color: 'white',
