@@ -30,7 +30,7 @@ const useJokes = () => {
         jokesComing.push(response.data.joke);
       }
     }
-    setJokes([...jokes, ...jokesComing]);
+    setJokes(jokes => [...jokes, ...jokesComing]);
     setFourJokes(jokesComing);
   }, [jokes, setJokes, fetchJoke]);
 

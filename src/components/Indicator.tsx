@@ -3,22 +3,19 @@ import {Animated, StyleSheet, Dimensions, View} from 'react-native';
 
 const {width} = Dimensions.get('window');
 
-const Indicator = ({scrollX, itemsQty}: {scrollX: any; itemsQty: number}) => {
+const Indicator = ({
+  itemsQty,
+  cardIndex,
+}: {
+  itemsQty: number;
+  cardIndex: number;
+}) => {
   return (
     <Animated.View style={styles.container}>
       {Array(itemsQty)
         .fill(1)
         .map((item, idx) => {
-          const inputRange = [
-            (idx - 1) * width,
-            idx * width,
-            (idx + 1) * width,
-          ];
-          const opacity = scrollX.interpolate({
-            inputRange,
-            outputRange: [0.2, 1, 0.2],
-            extrapolate: 'clamp',
-          });
+          const opacity = cardIndex === idx ? 1 : 0.1;
           return (
             <View key={idx} style={styles.stepContainer}>
               <Animated.View style={[styles.step, {opacity}]} />

@@ -19,6 +19,7 @@ const Saved = () => {
           <SavedCards handleDelete={handleDelete} joke={joke.item} />
         )}
         style={styles.flatList}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

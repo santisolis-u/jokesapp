@@ -1,9 +1,14 @@
-import {Animated, Dimensions, StyleSheet, Text, View} from 'react-native';
+import {
+  Animated,
+  Dimensions,
+  StyleProp,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
-import Card from './Card';
 import Indicator from './Indicator';
 import {Joke} from '../hooks/useJokes';
-import {JOKE_CARD_COLORS} from '../../utils/Colors';
 
 const {width} = Dimensions.get('window');
 
@@ -12,6 +17,8 @@ interface CarouselProps {
   indexChange: (number: number) => void;
   fetchNextJokes: () => void;
   cardIndex: number;
+  renderItem: any;
+  display?: StyleProp<ViewStyle>;
 }
 
 const Carousel = ({
@@ -19,11 +26,13 @@ const Carousel = ({
   indexChange,
   fetchNextJokes,
   cardIndex,
+  renderItem,
+  display,
 }: CarouselProps) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
-
+  console.log('ITEMS:', items);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, display]}>
       <Animated.FlatList
         data={items}
         scrollEventThrottle={32}
@@ -47,12 +56,7 @@ const Carousel = ({
           },
         )}
         keyExtractor={element => element.id}
-        renderItem={item => (
-          <Card
-            backgroundColor={JOKE_CARD_COLORS[cardIndex]}
-            text={item.item.joke}
-          />
-        )}
+        renderItem={renderItem.bind(this, scrollX)}
         horizontal
         showsHorizontalScrollIndicator={false}
         onEndReached={() => {
@@ -61,7 +65,7 @@ const Carousel = ({
           }
         }}
       />
-      <Indicator itemsQty={items.length} scrollX={scrollX} />
+      <Indicator cardIndex={cardIndex} itemsQty={4} />
     </View>
   );
 };
