@@ -1,12 +1,14 @@
 import {
   Animated,
   Dimensions,
+  NativeScrollEvent,
   StyleProp,
   StyleSheet,
   View,
   ViewStyle,
+  ViewToken,
 } from 'react-native';
-import React from 'react';
+import React, {useCallback, useRef} from 'react';
 import Indicator from './Indicator';
 import {Joke} from '../hooks/useJokes';
 
@@ -30,12 +32,25 @@ const Carousel = ({
   display,
 }: CarouselProps) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
-  console.log('ITEMS:', items);
+  const onViewableItemsChanged = React.useRef(
+    ({changed}: {changed: ViewToken[]}) => {
+      if (changed && changed.length > 0) {
+        indexChange(changed[0].index || 0);
+      }
+    },
+  );
+
+  const viewabilityConfig = useRef({
+    itemVisiblePercentThreshold: 90,
+    waitForInteraction: true,
+    minimumViewTime: 5,
+  });
+
   return (
     <View style={[styles.container, display]}>
       <Animated.FlatList
         data={items}
-        scrollEventThrottle={32}
+        scrollEventThrottle={64}
         pagingEnabled
         onScroll={Animated.event(
           [
@@ -45,16 +60,10 @@ const Carousel = ({
           ],
           {
             useNativeDriver: false,
-            listener: ({nativeEvent}) => {
-              const index = Math.ceil(
-                (nativeEvent as any).contentOffset.x / width,
-              );
-              if (indexChange) {
-                indexChange(index);
-              }
-            },
           },
         )}
+        onViewableItemsChanged={onViewableItemsChanged.current}
+        viewabilityConfig={viewabilityConfig.current}
         keyExtractor={element => element.id}
         renderItem={renderItem.bind(this, scrollX)}
         horizontal

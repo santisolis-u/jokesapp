@@ -36,7 +36,6 @@ const Home: FC<HomeProps> = ({navigation}) => {
     });
   }, [navigation, favJokes]);
 
-  console.log('cardIndex: ', cardIndex);
   const indexChange = (index: number) => {
     setCardIndex(index % 4);
   };
@@ -55,32 +54,33 @@ const Home: FC<HomeProps> = ({navigation}) => {
     <View style={styles.root}>
       <Title text={'Things you can say to annoy designers.'} />
       <View style={styles.carouselContainer}>
-        {isLoading && (
+        {jokes.length > 0 ? (
+          <Carousel
+            indexChange={indexChange}
+            items={jokes}
+            display={isLoading && {opacity: 0.2}}
+            cardIndex={cardIndex}
+            renderItem={(
+              scrollX: any,
+              {item, index}: {item: Joke; index: number},
+            ) => {
+              return (
+                <Card
+                  isLoading={isLoading}
+                  text={item.joke}
+                  backgroundColor={JOKE_CARD_COLORS[index % 4]}
+                />
+              );
+            }}
+            fetchNextJokes={() => {
+              fetchMoreJokes();
+            }}
+          />
+        ) : (
           <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" />
+            <ActivityIndicator size="large" color={'black'} />
           </View>
         )}
-        <Carousel
-          indexChange={indexChange}
-          items={jokes}
-          display={isLoading && {opacity: 0.2}}
-          cardIndex={cardIndex}
-          renderItem={(
-            scrollX: any,
-            {item, index}: {item: Joke; index: number},
-          ) => {
-            return (
-              <Card
-                text={item.joke}
-                backgroundColor={JOKE_CARD_COLORS[index % 4]}
-              />
-            );
-          }}
-          fetchNextJokes={() => {
-            fetchMoreJokes();
-            setCardIndex(0);
-          }}
-        />
       </View>
       <Button onPress={() => handleSaveJoke(cardIndex)}>
         <Text>Save</Text>
@@ -110,13 +110,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   loadingContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
     flex: 1,
+    width: width * 0.8,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
-    height: '100%',
   },
 });
