@@ -1,5 +1,6 @@
 import {useLazyQuery} from '@apollo/client';
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useContext, useEffect, useState} from 'react';
+import {FavJokesContext} from '../../store/store';
 import {FETCH_DAD_JOKE} from '../graphql/graphql';
 
 export type Joke = {
@@ -13,10 +14,15 @@ export interface JokeResponse {
 }
 
 const useJokes = () => {
+  const {favJokes} = useContext(FavJokesContext);
   const [fetchJoke, {loading: isLoading}] = useLazyQuery<JokeResponse>(
     FETCH_DAD_JOKE,
     {
       fetchPolicy: 'network-only',
+      errorPolicy: 'all',
+      onError(error) {
+        setJokes(favJokes);
+      },
     },
   );
   const [fourJokes, setFourJokes] = useState<Joke[]>([]);
@@ -24,6 +30,7 @@ const useJokes = () => {
 
   const fetchJokes: () => void = useCallback(async () => {
     const jokesComing: Joke[] = [];
+
     for (let i = 0; i <= 3; i++) {
       const response = await fetchJoke();
       if (!!response.data) {

@@ -39,7 +39,7 @@ const Home: FC<HomeProps> = ({navigation}) => {
   const indexChange = (index: number) => {
     setCardIndex(index % 4);
   };
-
+  console.log('jokes', jokes);
   const handleSaveJoke = (jokeIdx: number) => {
     const favJokeToAdd = fourJokes[jokeIdx];
     const jokeInFav = !!favJokes.find(
