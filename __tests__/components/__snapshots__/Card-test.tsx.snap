@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Renders correctly 1`] = `
+<View
+  collapsable={false}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "red",
+      "borderRadius": 8,
+      "justifyContent": "space-between",
+      "marginHorizontal": 37.5,
+      "paddingBottom": 30,
+      "paddingHorizontal": 20,
+      "paddingTop": 70,
+      "width": 600,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "white",
+          "fontFamily": "OpenSans-Bold",
+          "fontSize": 24,
+          "marginHorizontal": 20,
+          "textAlign": "center",
+        },
+        null,
+      ]
+    }
+  >
+    test
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "white",
+          "fontFamily": "IndieFlower",
+          "fontSize": 22,
+        },
+        null,
+      ]
+    }
+  >
+    @designhumor
+  </Text>
+</View>
+`;
+
+exports[`Renders Renders correctly loading 1`] = `
+<View
+  collapsable={false}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "rgba(237, NaN, NaN, 0.7)",
+      "borderRadius": 8,
+      "justifyContent": "space-between",
+      "marginHorizontal": 37.5,
+      "paddingBottom": 30,
+      "paddingHorizontal": 20,
+      "paddingTop": 70,
+      "width": 600,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "height": "100%",
+        "justifyContent": "center",
+        "marginTop": 50,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <ActivityIndicator
+      color="black"
+      size="large"
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "white",
+          "fontFamily": "OpenSans-Bold",
+          "fontSize": 24,
+          "marginHorizontal": 20,
+          "textAlign": "center",
+        },
+        Object {
+          "opacity": 0.7,
+        },
+      ]
+    }
+  >
+    testing
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "white",
+          "fontFamily": "IndieFlower",
+          "fontSize": 22,
+        },
+        Object {
+          "opacity": 0.7,
+        },
+      ]
+    }
+  >
+    @designhumor
+  </Text>
+</View>
+`;

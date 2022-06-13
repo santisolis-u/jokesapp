@@ -1,36 +1,15 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from './src/screens/Home';
+import {StyleSheet} from 'react-native';
+import React from 'react';
 import {ApolloProvider} from '@apollo/client';
 import {client} from './src/graphql/graphql';
-import {FavJokesContext} from './store/store';
-import {Joke} from './src/hooks/useJokes';
-import {FavsProvider} from './store/Provider';
-import Saved from './src/screens/Saved';
-
-const Stack = createNativeStackNavigator();
-
-export type RootStackParamList = {
-  Home: undefined;
-  Saved: undefined;
-};
+import {FavsProvider} from './src/store/Provider';
+import AppNavigator from './src/navigator/AppNavigator';
 
 const App = () => {
   return (
     <FavsProvider>
       <ApolloProvider client={client}>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen
-              options={{title: 'Saved❤️'}}
-              name="Saved"
-              component={Saved}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <AppNavigator />
       </ApolloProvider>
     </FavsProvider>
   );

@@ -16,7 +16,9 @@ const SavedCards: FC<SavedCardsProps> = ({joke, handleDelete}) => {
           pressed ? [styles.pressable, styles.pressed] : styles.pressable
         }
         onPress={() => handleDelete(joke.id)}>
-        <Text style={styles.trash}>🗑️</Text>
+        <Text testID={'trash'} style={styles.trash}>
+          🗑️
+        </Text>
       </Pressable>
     </View>
   );

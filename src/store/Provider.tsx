@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {Joke} from '../src/hooks/useJokes';
+import {Joke} from '../hooks/useJokes';
 import {FavJokesContext} from './store';
 import Realm from 'realm';
-import {JokeSchema} from '../src/realm/schema';
+import {JokeSchema} from '../realm/schema';
 interface Props {
   children: JSX.Element;
 }
@@ -31,12 +31,14 @@ export const FavsProvider: React.FC<Props> = ({children}) => {
   }, []);
 
   const addFavJoke = (joke: Joke) => {
-    if (!!realm && !realm.isClosed) {
-      realm.write(() => {
-        realm.create('Joke', joke);
-      });
+    if (!favJokes.includes(joke)) {
+      if (!!realm && !realm.isClosed) {
+        realm.write(() => {
+          realm.create('Joke', joke);
+        });
+      }
+      setFavJokes(favJokes => [...favJokes, joke]);
     }
-    setFavJokes(favJokes => [...favJokes, joke]);
   };
   const removeFavJoke = (id: string) => {
     if (!!realm && !realm.isClosed) {

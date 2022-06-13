@@ -7,7 +7,7 @@ import {
   View,
   ActivityIndicator,
 } from 'react-native';
-import {hexToRGB} from '../../utils/Colors';
+import {hexToRGB} from '../utils/Colors';
 
 const {width} = Dimensions.get('window');
 

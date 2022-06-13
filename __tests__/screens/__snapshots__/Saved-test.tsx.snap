@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Saved renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "margin": 24,
+      "overflow": "visible",
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": "1",
+          "joke": "TEST",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "overflow": "visible",
+      }
+    }
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderColor": "black",
+              "borderRadius": 24,
+              "borderWidth": 2,
+              "flex": 1,
+              "flexDirection": "row",
+              "fontFamily": "OpenSans-Bold",
+              "justifyContent": "center",
+              "marginBottom": 16,
+              "minHeight": 100,
+              "padding": 16,
+              "shadowColor": "black",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 2,
+              },
+              "shadowOpacity": 0.2,
+              "shadowRadius": 24,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 3,
+                "fontFamily": "OpenSans-Bold",
+                "justifyContent": "center",
+              }
+            }
+          >
+            TEST
+          </Text>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={Object {}}
+              testID="trash"
+            >
+              🗑️
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

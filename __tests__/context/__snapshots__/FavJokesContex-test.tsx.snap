@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fav Context Renders correctly 1`] = `
+<Text>
+  Loading:
+  0
+</Text>
+`;

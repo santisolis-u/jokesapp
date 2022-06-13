@@ -1,4 +1,4 @@
-import {Joke} from '../src/hooks/useJokes';
+import {Joke} from '../hooks/useJokes';
 import React, {FC, ReactChildren, useState} from 'react';
 interface FavJokesContextType {
   favJokes: Joke[];

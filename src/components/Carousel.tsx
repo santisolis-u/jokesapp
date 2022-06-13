@@ -49,6 +49,7 @@ const Carousel = ({
   return (
     <View style={[styles.container, display]}>
       <Animated.FlatList
+        testID={'flatList'}
         data={items}
         scrollEventThrottle={64}
         pagingEnabled

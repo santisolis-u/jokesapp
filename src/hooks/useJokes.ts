@@ -1,6 +1,6 @@
 import {useLazyQuery} from '@apollo/client';
 import {useCallback, useContext, useEffect, useState} from 'react';
-import {FavJokesContext} from '../../store/store';
+import {FavJokesContext} from '../store/store';
 import {FETCH_DAD_JOKE} from '../graphql/graphql';
 
 export type Joke = {
@@ -20,7 +20,7 @@ const useJokes = () => {
     {
       fetchPolicy: 'network-only',
       errorPolicy: 'all',
-      onError(error) {
+      onError() {
         setJokes(favJokes);
       },
     },

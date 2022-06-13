@@ -12,42 +12,42 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 import Carousel from '../components/Carousel';
 import useJokes, {Joke} from '../hooks/useJokes';
-import {FavJokesContext} from '../../store/store';
+import {FavJokesContext} from '../store/store';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../App';
-import {JOKE_CARD_COLORS} from '../../utils/Colors';
+
+import {JOKE_CARD_COLORS} from '../utils/Colors';
+import {RootStackParamList} from '../navigator/AppNavigator';
 
 const {width} = Dimensions.get('window');
 
-type HomeProps = NativeStackScreenProps<RootStackParamList>;
+type HomeProps = Partial<NativeStackScreenProps<RootStackParamList>>;
 
 const Home: FC<HomeProps> = ({navigation}) => {
   const {favJokes, addFavJoke} = useContext(FavJokesContext);
   const {jokes, fourJokes, fetchMoreJokes, isLoading} = useJokes();
   const [cardIndex, setCardIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
   useLayoutEffect(() => {
-    navigation.setOptions({
+    navigation?.setOptions({
       headerRight: () => (
-        <Pressable onPress={() => navigation.navigate('Saved')}>
-          <Text style={styles.saved}>❤️Saved: {favJokes.length} </Text>
+        <Pressable onPress={() => navigation?.navigate('Saved')}>
+          <Text testID={'header-right'} style={styles.saved}>
+            Saved: {favJokes.length}{' '}
+          </Text>
         </Pressable>
       ),
     });
   }, [navigation, favJokes]);
 
-  const indexChange = (index: number) => {
+  const cardIndexChange = (index: number) => {
     setCardIndex(index % 4);
+    setIndex(index);
   };
-  console.log('jokes', jokes);
-  const handleSaveJoke = (jokeIdx: number) => {
-    const favJokeToAdd = fourJokes[jokeIdx];
-    const jokeInFav = !!favJokes.find(
-      joke => joke.id === fourJokes[jokeIdx].id,
-    );
 
-    if (!!addFavJoke && !!favJokeToAdd && !jokeInFav) {
-      addFavJoke(favJokeToAdd);
+  const handleSaveJoke = () => {
+    if (!!addFavJoke) {
+      addFavJoke(jokes[index]);
     }
   };
   return (
@@ -56,7 +56,7 @@ const Home: FC<HomeProps> = ({navigation}) => {
       <View style={styles.carouselContainer}>
         {jokes.length > 0 ? (
           <Carousel
-            indexChange={indexChange}
+            indexChange={cardIndexChange}
             items={jokes}
             display={isLoading && {opacity: 0.2}}
             cardIndex={cardIndex}
@@ -82,9 +82,7 @@ const Home: FC<HomeProps> = ({navigation}) => {
           </View>
         )}
       </View>
-      <Button onPress={() => handleSaveJoke(cardIndex)}>
-        <Text>Save</Text>
-      </Button>
+      <Button title={'Save'} onPress={handleSaveJoke} />
     </View>
   );
 };

@@ -2,14 +2,14 @@ import {Pressable, StyleSheet, Text} from 'react-native';
 import React from 'react';
 
 interface ButtonProps {
-  children: JSX.Element;
   onPress?: () => void;
+  title: string;
 }
 
-const Button: React.FC<ButtonProps> = ({children, onPress}) => {
+const Button: React.FC<ButtonProps> = ({title, onPress}) => {
   return (
     <Pressable onPress={onPress} style={styles.pressable}>
-      <Text style={styles.text}>{children}</Text>
+      <Text style={styles.text}>{title}</Text>
     </Pressable>
   );
 };
