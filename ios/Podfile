@@ -21,7 +21,6 @@ target 'jokesApp' do
 
 
 
-  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
 
   target 'jokesAppTests' do
     inherit! :complete

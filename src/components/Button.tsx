@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: 'black',
     width: '80%',
+    padding: 20,
   },
   text: {
     fontFamily: 'OpenSans-Regular',

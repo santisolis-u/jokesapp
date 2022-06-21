@@ -36,11 +36,11 @@ export default Saved;
 const styles = StyleSheet.create({
   savedContainer: {
     margin: 24,
-    overflow: 'visible',
+    // overflow: 'visible',
     flex: 1,
   },
   flatList: {
-    overflow: 'visible',
+    // overflow: 'visible',
   },
   center: {
     flex: 1,
