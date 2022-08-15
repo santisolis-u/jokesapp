@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:405017595387:android:9a40930889029a79918f5e",
+        "mobilesdk_app_id": "1:405017595387:android:e5882c3840cbfa93918f5e",
         "android_client_info": {
           "package_name": "com.jokesapp"
         }
@@ -31,46 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "405017595387-kv7hm498qies3devqjv2v8v3nj504pdr.apps.googleusercontent.com",
+              "client_id": "405017595387-2s9p70n670cghuolrba0j69eotiabo78.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.jokesapp.ios"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:405017595387:android:439fb448c40b7319918f5e",
-        "android_client_info": {
-          "package_name": "com.ss.jokesApp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "405017595387-5vfpr878p43qo7lcnk2q8r9p0e6rhb70.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDBuGxcc2H1QBNLJbnssNKNobuMH7UK8xk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "405017595387-5vfpr878p43qo7lcnk2q8r9p0e6rhb70.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "405017595387-kv7hm498qies3devqjv2v8v3nj504pdr.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.jokesapp.ios"
+                "bundle_id": "com.jokesapp"
               }
             }
           ]

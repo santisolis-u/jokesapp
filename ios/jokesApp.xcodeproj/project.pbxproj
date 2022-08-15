@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* jokesAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* jokesAppTests.m */; };
-		0465E887286230B800401F3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0465E886286230B800401F3B /* GoogleService-Info.plist */; };
-		0465E888286230B800401F3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0465E886286230B800401F3B /* GoogleService-Info.plist */; };
+		04B21DA028AA887A00F19F72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B21D9F28AA887A00F19F72 /* GoogleService-Info.plist */; };
 		0C80B921A6F3F58F76C31292 /* libPods-jokesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-jokesApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -36,7 +35,7 @@
 		00E356EE1AD99517003FC87E /* jokesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jokesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* jokesAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jokesAppTests.m; sourceTree = "<group>"; };
-		0465E886286230B800401F3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04B21D9F28AA887A00F19F72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* jokesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jokesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = jokesApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = jokesApp/AppDelegate.mm; sourceTree = "<group>"; };
@@ -97,7 +96,7 @@
 		13B07FAE1A68108700A75B9A /* jokesApp */ = {
 			isa = PBXGroup;
 			children = (
-				0465E886286230B800401F3B /* GoogleService-Info.plist */,
+				04B21D9F28AA887A00F19F72 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -260,7 +259,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0465E888286230B800401F3B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +272,7 @@
 				BB7B420A28DA4A48BFD2D755 /* OpenSans-Light.ttf in Resources */,
 				F376CCC91DB948BA84F2DD13 /* OpenSans-Regular.ttf in Resources */,
 				D1C49F4C346E40ABA4122D9D /* IndieFlower-Regular.ttf in Resources */,
-				0465E887286230B800401F3B /* GoogleService-Info.plist in Resources */,
+				04B21DA028AA887A00F19F72 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +336,9 @@
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "[CP-User] [RNFB] Core Configuration";
 			runOnlyForDeploymentPostprocessing = 0;

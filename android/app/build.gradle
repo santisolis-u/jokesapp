@@ -1,5 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "com.google.gms.google-services"
+apply plugin: 'com.google.firebase.appdistribution'
+
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -264,7 +266,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation("com.google.firebase:firebase-iid")
-    // implementation platform('com.google.firebase:firebase-bom:27.0.0')
+    implementation platform('com.google.firebase:firebase-bom:30.3.2')
     implementation 'com.google.firebase:firebase-analytics'
     implementation(platform("com.google.firebase:firebase-bom:29.1.0"))
     implementation("com.google.firebase:firebase-messaging")

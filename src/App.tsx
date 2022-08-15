@@ -4,13 +4,13 @@ import '@react-native-firebase/messaging';
 import PushNotification from 'react-native-push-notification';
 import {Platform, StyleSheet} from 'react-native';
 import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
-import {FavsProvider} from './src/store/Provider';
+import {FavsProvider} from './store/Provider';
 import {ApolloProvider} from '@apollo/client';
-import {client} from './src/graphql/graphql';
-import AppNavigator from './src/navigator/AppNavigator';
+import {client} from './graphql/graphql';
+import AppNavigator from './navigator/AppNavigator';
 import messaging from '@react-native-firebase/messaging';
-import useAuth from './src/hooks/useAuth';
-import LoadingOverlay from './src/components/Loading';
+import useAuth from './hooks/useAuth';
+import LoadingOverlay from './components/Loading';
 
 const requestUserPermission = async () => {
   const authStatus = await messaging().requestPermission();

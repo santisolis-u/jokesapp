@@ -1,0 +1,39 @@
+fastlane_require 'dotenv'
+
+before_all do
+  Dotenv.overload('.env')
+end
+
+platform :ios do
+    desc "RN Production App"
+    lane :distribute do
+        build_ios_app(...)
+        # build_ios_app is a built-in fastlane action.
+
+        firebase_app_distribution(
+            app: "1:405017595387:ios:68cc35b81e9d43a5918f5e",
+            testers: "santux09@gmail.com, tom.causa@utilitynyc.com",
+            firebase_cli_token: ENV["FIREBASE_TOKEN"],
+            release_notes: "Lots of amazing new features to test out!"
+        )
+
+    end
+end
+platform :android do
+  desc "RN Production App"
+  lane :distribute do
+    gradle(task: 'clean assembleRelease', project_dir: './android', print_command: false, properties: {
+      "MYAPP_UPLOAD_STORE_FILE" => ENV["MYAPP_UPLOAD_STORE_FILE"],
+      "MYAPP_UPLOAD_STORE_PASSWORD" => ENV["MYAPP_UPLOAD_STORE_PASSWORD"],
+      "MYAPP_UPLOAD_KEY_ALIAS" => ENV["MYAPP_UPLOAD_KEY_ALIAS"],
+      "MYAPP_UPLOAD_KEY_PASSWORD" => ENV["MYAPP_UPLOAD_KEY_PASSWORD"]
+    })
+    firebase_app_distribution(
+      app: "1:405017595387:android:e5882c3840cbfa93918f5e",
+      testers: "santux09@gmail.com, tom.causa@utilitynyc.com",
+      firebase_cli_token: ENV["FIREBASE_TOKEN"],
+      release_notes: "Lots of amazing new features to test out!"
+    )
+  end
+end
+
