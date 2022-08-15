@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* jokesAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* jokesAppTests.m */; };
+		04A82AA228AAAC2B00576AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A82AA128AAAC2B00576AD7 /* Assets.xcassets */; };
 		04B21DA028AA887A00F19F72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B21D9F28AA887A00F19F72 /* GoogleService-Info.plist */; };
 		0C80B921A6F3F58F76C31292 /* libPods-jokesApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-jokesApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -35,6 +36,8 @@
 		00E356EE1AD99517003FC87E /* jokesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jokesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* jokesAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jokesAppTests.m; sourceTree = "<group>"; };
+		04A82AA128AAAC2B00576AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04A82AA328AAC01F00576AD7 /* jokesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = jokesApp.entitlements; path = jokesApp/jokesApp.entitlements; sourceTree = "<group>"; };
 		04B21D9F28AA887A00F19F72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* jokesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jokesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = jokesApp/AppDelegate.h; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 		13B07FAE1A68108700A75B9A /* jokesApp */ = {
 			isa = PBXGroup;
 			children = (
+				04A82AA328AAC01F00576AD7 /* jokesApp.entitlements */,
+				04A82AA128AAAC2B00576AD7 /* Assets.xcassets */,
 				04B21D9F28AA887A00F19F72 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -272,6 +277,7 @@
 				BB7B420A28DA4A48BFD2D755 /* OpenSans-Light.ttf in Resources */,
 				F376CCC91DB948BA84F2DD13 /* OpenSans-Regular.ttf in Resources */,
 				D1C49F4C346E40ABA4122D9D /* IndieFlower-Regular.ttf in Resources */,
+				04A82AA228AAAC2B00576AD7 /* Assets.xcassets in Resources */,
 				04B21DA028AA887A00F19F72 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,7 +495,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jokesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jokesApp.app/jokesApp";
 			};
@@ -513,7 +519,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jokesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jokesApp.app/jokesApp";
 			};
@@ -525,8 +531,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W95BCDACTS;
+				CODE_SIGN_ENTITLEMENTS = jokesApp/jokesApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = A9MF56EMP8;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = jokesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -540,6 +549,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jokesapp;
 				PRODUCT_NAME = jokesApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -552,8 +562,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W95BCDACTS;
+				CODE_SIGN_ENTITLEMENTS = jokesApp/jokesApp.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = A9MF56EMP8;
 				INFOPLIST_FILE = jokesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,6 +578,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jokesapp;
 				PRODUCT_NAME = jokesApp;
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.jokesapp";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
