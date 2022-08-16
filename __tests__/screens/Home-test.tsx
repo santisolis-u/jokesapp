@@ -63,5 +63,5 @@ describe('<Home />', () => {
     const toClick = await getByText('Save');
     fireEvent.press(toClick);
     await waitFor(() => expect(mockAddFavJoke).toHaveBeenCalledTimes(1));
-  });
+  }, 30000);
 });
