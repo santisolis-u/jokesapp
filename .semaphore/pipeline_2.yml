@@ -15,7 +15,7 @@ blocks:
             - sem-version ruby 2.6.8 -f
             - bundle install
             - bundle exec fastlane add_plugin semaphore
-            - 'bundle exec fastlane add_plugin versioning '
+            - bundle exec fastlane add_plugin versioning
             - bundle exec fastlane beta
       env_vars:
         - name: MATCH_PASSWORD
