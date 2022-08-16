@@ -1,3 +1,5 @@
+version: v1.0
+name: appjokes
 apiVersion: v1alpha
 kind: Project
 metadata:
