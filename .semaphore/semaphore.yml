@@ -36,11 +36,7 @@ blocks:
             - npm run detox-ios-test-release
             - artifact push workflow ios/build/Build/Products/Release-iphonesimulator/ReactNativeSemaphoreNew.app
 promotions:
-  - name: Build App
+  - name: Build App and TestFlight publish
     pipeline_file: pipeline_2.yml
-    auto_promote:
-      when: branch = 'master' AND result = 'passed'
-  - name: Promotion 2
-    pipeline_file: pipeline_3.yml
     auto_promote:
       when: branch = 'master' AND result = 'passed'
