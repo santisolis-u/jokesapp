@@ -29,9 +29,6 @@ blocks:
             - brew install applesimutils
             - cache restore
             - cd ..
-            - cd ios
-            - pod install
-            - cd ..
             - npm run detox-clean-and-build-cache
             - npm run detox-ios-build-release
             - npm run detox-ios-test-release
