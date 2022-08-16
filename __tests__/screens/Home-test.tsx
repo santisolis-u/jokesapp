@@ -47,7 +47,7 @@ describe('<Home />', () => {
     const mockAddFavJoke = jest.fn();
     const mockRemoveFavJoke = jest.fn();
 
-    const component = (
+    const component = await (
       <FavJokesContext.Provider
         value={{
           favJokes: [],
