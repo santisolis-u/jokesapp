@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "fastlane-build-ios": "bundle exec fastlane ios build",
     "start": "react-native start",
     "test": "jest --collectCoverageFrom=src/**/*.tsx",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"

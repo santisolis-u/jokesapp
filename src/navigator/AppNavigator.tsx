@@ -7,7 +7,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SignUp} from '../screens/SignUp';
 import {Login} from '../screens/Login';
 import useAuth from '../hooks/useAuth';
-import Button from '../components/Button';
 
 const Stack = createNativeStackNavigator();
 

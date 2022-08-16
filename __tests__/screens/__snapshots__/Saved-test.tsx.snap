@@ -6,7 +6,6 @@ exports[`Saved renders correctly 1`] = `
     Object {
       "flex": 1,
       "margin": 24,
-      "overflow": "visible",
     }
   }
 >
@@ -34,11 +33,7 @@ exports[`Saved renders correctly 1`] = `
     scrollEventThrottle={50}
     showsVerticalScrollIndicator={false}
     stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "overflow": "visible",
-      }
-    }
+    style={Object {}}
     viewabilityConfigCallbackPairs={Array []}
   >
     <View>
