@@ -1,9 +1,7 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useState} from 'react';
-import Button from '../components/Button';
+import {StyleSheet, View} from 'react-native';
+import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigator/AppNavigator';
-import Title from '../components/Title';
 import AuthForm from '../components/AuthForm';
 
 type SignUpProps = Partial<NativeStackScreenProps<RootStackParamList>>;
