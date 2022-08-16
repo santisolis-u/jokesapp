@@ -14,7 +14,6 @@ blocks:
             - cache restore
             - sem-version ruby 2.6.8 -f
             - bundle install
-            - bundle exec xcversion select 12.3
             - bundle exec fastlane add_plugin semaphore
             - bundle exec fastlane beta
       env_vars:
