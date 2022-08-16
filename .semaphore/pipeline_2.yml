@@ -1,0 +1,15 @@
+version: v1.0
+name: Pipeline 2
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: App Building
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - checkout
+            - cache restore
+            - bundle exec fastlane beta
