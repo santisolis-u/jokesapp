@@ -28,6 +28,7 @@ blocks:
             - brew tap wix/brew
             - brew install applesimutils
             - cache restore
+            - cd ..
             - cd ios
             - pod install
             - cd ..
