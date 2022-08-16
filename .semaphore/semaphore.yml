@@ -22,17 +22,6 @@ blocks:
             - checkout
             - cache restore
             - npm test
-        - name: E2E Tests
-          commands:
-            - cache
-            - brew tap wix/brew
-            - brew install applesimutils
-            - cache restore
-            - cd ..
-            - npm run detox-clean-and-build-cache
-            - npm run detox-ios-build-release
-            - npm run detox-ios-test-release
-            - artifact push workflow ios/build/Build/Products/Release-iphonesimulator/ReactNativeSemaphoreNew.app
 promotions:
   - name: Build App and TestFlight publish
     pipeline_file: pipeline_2.yml
