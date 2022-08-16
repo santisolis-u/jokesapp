@@ -12,5 +12,6 @@ blocks:
           commands:
             - checkout
             - cache restore
+            - sem-version ruby 2.6.8 -f
             - bundle install
             - bundle exec fastlane beta
