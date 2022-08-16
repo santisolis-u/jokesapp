@@ -1,7 +1,7 @@
-git_url("https://github.com/santisolis-u/creds.git")
-git_basic_authorization ("c2FudGlzb2xpcy11OmdocF93QzFaUkRRWUpCb3B5cnNaQjFuTEpQdkZBSVhldzIwRWppM2w=")
-storage_mode("git")
+git_url("https://github.com/santisolis-u/creds")
 
+git_basic_authorization (“c2FudGlzb2xpcy11OmdocF93QzFaUkRRWUpCb3B5cnNaQjFuTEpQdkZBSVhldzIwRWppM2w=“)
+storage_mode(“git”)
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
 
 # app_identifier(["tools.fastlane.app", "tools.fastlane.app2"])
