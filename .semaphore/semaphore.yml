@@ -10,7 +10,6 @@ blocks:
       jobs:
         - name: Install
           commands:
-            - ssh-keygen -t ed25519 -C "santiago.solis@utilitynyc.com"
             - checkout
             - cache restore
             - npm install
