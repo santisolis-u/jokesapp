@@ -14,7 +14,7 @@ const Saved = () => {
     <View style={styles.savedContainer}>
       {favJokes.length > 0 ? (
         <FlatList
-          keyExtractor={element => element.id}
+          keyExtractor={(element, index) => index.toString()}
           data={favJokes}
           renderItem={joke => (
             <SavedCards handleDelete={handleDelete} joke={joke.item} />

@@ -65,7 +65,7 @@ const Carousel = ({
         )}
         onViewableItemsChanged={onViewableItemsChanged.current}
         viewabilityConfig={viewabilityConfig.current}
-        keyExtractor={element => element.id}
+        keyExtractor={(element, index) => index.toString()}
         renderItem={renderItem.bind(this, scrollX)}
         horizontal
         showsHorizontalScrollIndicator={false}
