@@ -20,3 +20,9 @@ blocks:
       env_vars:
         - name: MATCH_PASSWORD
           value: 40499891Santi*
+        - name: LANG
+          value: en_US.UTF-8
+        - name: LANGUAGE
+          value: en_US.UTF-8
+        - name: LC_ALL
+          value: en_US.UTF-8
