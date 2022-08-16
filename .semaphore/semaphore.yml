@@ -22,6 +22,8 @@ blocks:
             - checkout
             - cache restore
             - npm test
+    skip:
+      when: branch = 'master'
 promotions:
   - name: Build App and TestFlight publish
     pipeline_file: pipeline_2.yml
