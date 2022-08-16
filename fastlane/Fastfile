@@ -28,7 +28,7 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     sync_code_signing(type: "appstore", readonly: is_ci)
-    increment_version_number_in_plist
+    increment_version_number_in_plist(bump_type: 'major', xcodeproj: 'ios/jokesApp.xcodeproj')
     build_app(workspace: "ios/jokesApp.xcworkspace", scheme: "jokesApp", clean: true,silent: true,xcargs: "ONLY_ACTIVE_ARCH=YES",)
     upload_to_testflight
   end
