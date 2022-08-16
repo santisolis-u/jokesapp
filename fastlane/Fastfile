@@ -17,15 +17,46 @@ before_all do
 end
 default_platform(:ios)
 
+# platform :ios do
+#   desc "Push a new beta build to TestFlight"
+#   lane :beta do
+#     xcode_install(version: "12.3")
+#     xcode_select("/Applications/Xcode.app")
+#     xcversion(version: "12.3")
+#     sync_code_signing(type: "appstore", readonly: is_ci)
+#     increment_build_number(xcodeproj: "ios/jokesApp.xcodeproj")
+#     build_app(workspace: "ios/jokesApp.xcworkspace", scheme: "jokesApp", clean: true,silent: true,xcargs: "ONLY_ACTIVE_ARCH=YES",)
+#     upload_to_testflight
+#   end
+# end
+
 platform :ios do
-  desc "Push a new beta build to TestFlight"
   lane :beta do
-    xcode_install(version: "12.3")
-    xcode_select("/Applications/Xcode.app")
-    xcversion(version: "12.3")
-    sync_code_signing(type: "appstore", readonly: is_ci)
-    increment_build_number(xcodeproj: "ios/jokesApp.xcodeproj")
-    build_app(workspace: "ios/jokesApp.xcworkspace", scheme: "jokesApp", clean: true,silent: true,xcargs: "ONLY_ACTIVE_ARCH=YES",)
-    upload_to_testflight
+    # Step 1 - Create keychains
+    keychain_name = santisolis-u
+    keychain_password = 40499891Santi*
+    ensure_temp_keychain(keychain_name, keychain_password)
+
+    # Step 2 - Download provisioning profiles and certificates
+    match(
+      type: 'appstore',
+      app_identifier: com.jokesapp,
+      git_basic_authorization:  c2FudGlzb2xpcy11OmdocF93QzFaUkRRWUpCb3B5cnNaQjFuTEpQdkZBSVhldzIwRWppM2w=,
+      readonly: true,
+      keychain_name: santisolis-u,
+      keychain_password: 40499891Santi* 
+    )
+
+    # Step 3 - Build the project
+    gym(
+      configuration: "Release",
+      workspace: "ios/jokesApp.xcworkspace",
+      export_method: "app-store",
+    )
+
+    # Step 4 - Upload the project
+
+    # Step 5 - Delete temporary keychains
+    delete_temp_keychain(santisolis-u)
   end
 end
