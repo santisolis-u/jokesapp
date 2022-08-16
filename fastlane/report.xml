@@ -5,17 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000215">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000211">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: setup_semaphore" time="0.000142">
+      <testcase classname="fastlane.lanes" name="1: setup_semaphore" time="0.00017">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: sync_code_signing" time="34.623418">
+      <testcase classname="fastlane.lanes" name="2: sync_code_signing" time="7.395304">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="0.943485">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: build_app" time="91.717759">
         
       </testcase>
     
