@@ -12,4 +12,5 @@ blocks:
           commands:
             - checkout
             - cache restore
+            - bundle install
             - bundle exec fastlane beta
